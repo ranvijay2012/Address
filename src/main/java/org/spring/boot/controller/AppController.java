@@ -34,7 +34,7 @@ public class AppController {
     }
 
     @GetMapping("/address/list")
-    @Operation(summary = "Get all employees list from DB")
+    @Operation(summary = "Get all address list from DB")
     public ResponseEntity<ResponseDto<?>> getAddressList() {
         log.info("Get all employeeDtos list from DB");
         List<AddressDto> employeeDtos = addressService.getAddressList();
@@ -42,7 +42,7 @@ public class AppController {
     }
 
     @GetMapping("/address/{id}")
-    @Operation(summary = "Get only employee from DB with id")
+    @Operation(summary = "Get only address from DB with id")
     public ResponseEntity<ResponseDto<?>> getAddress(@PathVariable("id") Long id) {
         log.info("Get only employeeDto from DB with id: {}", id);
         AddressDto addressDto = addressService.getAddress(id);
@@ -58,9 +58,9 @@ public class AppController {
     }
 
     @DeleteMapping("/address/{id}")
-    @Operation(summary = "Delete employee from DB filtered with id")
+    @Operation(summary = "Delete address from DB filtered with id")
     public ResponseEntity<ResponseDto<?>> deleteAddress(@PathVariable("empId") Long id) {
-        log.info("Delete employee in DB id is: {}", id);
+        log.info("Delete address in DB id is: {}", id);
         addressService.deleteAddress(id);
         return responseUtil.getSuccessResponseDto(SuccessDetails.EMPLOYEE_DELETED_SUCCESSFULLY);
     }
