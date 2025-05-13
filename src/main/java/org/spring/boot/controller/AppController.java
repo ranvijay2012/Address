@@ -36,25 +36,25 @@ public class AppController {
     @GetMapping("/address/list")
     @Operation(summary = "Get all address list from DB")
     public ResponseEntity<ResponseDto<?>> getAddressList() {
-        log.info("Get all employeeDtos list from DB");
-        List<AddressDto> employeeDtos = addressService.getAddressList();
-        return responseUtil.getSuccessResponseWithDataDto(employeeDtos, SuccessDetails.EMPLOYEE_LIST_GET_SUCCESSFULLY);
+        log.info("Get all addressoyeeDtos list from DB");
+        List<AddressDto> addressList = addressService.getAddressList();
+        return responseUtil.getSuccessResponseWithDataDto(addressList, SuccessDetails.ADDRESS_LIST_GET_SUCCESSFULLY);
     }
 
     @GetMapping("/address/{id}")
     @Operation(summary = "Get only address from DB with id")
     public ResponseEntity<ResponseDto<?>> getAddress(@PathVariable("id") Long id) {
-        log.info("Get only employeeDto from DB with id: {}", id);
+        log.info("Get only address dto from DB with id: {}", id);
         AddressDto addressDto = addressService.getAddress(id);
-        return responseUtil.getSuccessResponseWithDataDto(addressDto, SuccessDetails.EMPLOYEE_GET_SUCCESSFULLY);
+        return responseUtil.getSuccessResponseWithDataDto(addressDto, SuccessDetails.ADDRESS_GET_SUCCESSFULLY);
     }
 
     @PostMapping("/address")
-    @Operation(summary = "Save employeeDto in DB")
+    @Operation(summary = "Save address dto in DB")
     public ResponseEntity<ResponseDto<?>> saveAddress(@RequestBody AddressDto addressDto) throws ApplicationException {
-        log.info("Save employeeDto in DB employeeDto is: {}", addressDto);
+        log.info("Save address dto in DB address dto is: {}", addressDto);
         AddressDto addressDto1 = addressService.saveAddress(addressDto);
-        return responseUtil.getSuccessResponseWithDataDto(addressDto1, SuccessDetails.EMPLOYEE_SAVED_SUCCESSFULLY);
+        return responseUtil.getSuccessResponseWithDataDto(addressDto1, SuccessDetails.ADDRESS_SAVED_SUCCESSFULLY);
     }
 
     @DeleteMapping("/address/{id}")
@@ -62,6 +62,6 @@ public class AppController {
     public ResponseEntity<ResponseDto<?>> deleteAddress(@PathVariable("empId") Long id) {
         log.info("Delete address in DB id is: {}", id);
         addressService.deleteAddress(id);
-        return responseUtil.getSuccessResponseDto(SuccessDetails.EMPLOYEE_DELETED_SUCCESSFULLY);
+        return responseUtil.getSuccessResponseDto(SuccessDetails.ADDRESS_DELETED_SUCCESSFULLY);
     }
 }
